@@ -1,0 +1,215 @@
+/*
+Theme Name: Minimal Gutenberg First
+Theme URI: https://example.com/minimal-gutenberg-first
+Author: OpenAI
+Author URI: https://openai.com
+Description: A minimal, accessible, Gutenberg-first WordPress theme.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: minimal-gutenberg-first
+Tags: block-styles, accessibility-ready, editor-style, full-site-editing, one-column
+*/
+
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #111;
+}
+
+a {
+  color: #0a58ca;
+}
+
+a:focus,
+a:hover {
+  text-decoration-thickness: 0.2em;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.site-header,
+.site-footer {
+  padding: 2rem 1.5rem;
+  background: #f7f7f7;
+}
+
+.site-main {
+  padding: 2rem 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+.site-sidebar {
+  padding: 1.5rem;
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+}
+
+.widget + .widget {
+  margin-top: 1.5rem;
+}
+
+.widget-title {
+  font-size: 1.125rem;
+  margin: 0 0 0.5rem;
+}
+
+/* Tailwind-inspired utilities for layout */
+.tw-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.tw-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .tw-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .tw-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tw-grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.tw-prose {
+  max-width: 65ch;
+}
+
+.tw-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tw-slideshow {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.tw-slideshow img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.tw-slideshow-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tw-button {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.tw-button:focus,
+.tw-button:hover {
+  border-color: #0a58ca;
+}
+
+.tw-slideshow-status {
+  font-size: 0.875rem;
+}
+
+.tw-tabs {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.tw-tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tw-tab {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tw-tab.is-active {
+  border-color: #0a58ca;
+  background: #eff6ff;
+}
+
+.tw-tab-panel {
+  padding: 0.5rem 0;
+}
+
+.tw-toggle {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.tw-toggle-button {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tw-toggle-panel {
+  margin-top: 0.75rem;
+}
+
+.tw-scroll-buttons {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+  z-index: 50;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+  }
+}
