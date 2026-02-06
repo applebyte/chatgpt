@@ -85,8 +85,35 @@ function minimal_gutenberg_first_enqueue_editor_assets(): void {
     wp_get_theme()->get('Version'),
     true
   );
+
+  wp_enqueue_script(
+    'minimal-gutenberg-first-editor-image-defaults',
+    get_template_directory_uri() . '/assets/editor-image-defaults.js',
+    ['wp-data', 'wp-html-entities'],
+    wp_get_theme()->get('Version'),
+    true
+  );
 }
 add_action('enqueue_block_editor_assets', 'minimal_gutenberg_first_enqueue_editor_assets');
+
+function minimal_gutenberg_first_default_image_attributes(array $attributes, WP_Post $attachment): array {
+  $filename = pathinfo($attachment->guid ?? '', PATHINFO_FILENAME);
+  if ($filename) {
+    $filename = str_replace(['-', '_'], ' ', $filename);
+    $filename = trim($filename);
+  }
+
+  if (empty($attributes['alt']) && $filename) {
+    $attributes['alt'] = $filename;
+  }
+
+  if (empty($attributes['title']) && $filename) {
+    $attributes['title'] = $filename;
+  }
+
+  return $attributes;
+}
+add_filter('wp_get_attachment_image_attributes', 'minimal_gutenberg_first_default_image_attributes', 10, 2);
 
 function minimal_gutenberg_first_register_sidebars(): void {
   register_sidebar(
